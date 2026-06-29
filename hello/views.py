@@ -23,6 +23,6 @@ def db(request):
     greeting = Greeting()
     greeting.save()
 
-    greetings = Greeting.objects.all()
+    greetings = Greeting.objects.order_by("-when")[:50]
 
     return render(request, "db.html", {"greetings": greetings})
